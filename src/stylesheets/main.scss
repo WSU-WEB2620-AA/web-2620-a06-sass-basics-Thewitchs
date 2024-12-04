@@ -1,4 +1,12 @@
 // Your styles go here
+
+//Variables
+$Linkcolor:#0d6efd;
+$TBB:#303030;
+$light:#FFF;
+$Notlight:#333;
+
+
 body {
   background: #202020 url('/images/footer-bg.jpg') repeat;
   min-width: 1200px;
@@ -49,7 +57,7 @@ i {
 }
 
 a {
-  color: #0d6efd;
+  color: $Linkcolor;
 }
 
 sub {
@@ -77,22 +85,23 @@ table {
   margin-bottom: 1em;
 }
 
+//combined
 header {
   margin-bottom: 2em;
   line-height: 1.7em;
+  .byline {
+    display: block;
+    margin: 0.5em 0 0 0;
+    padding: 0 0 0.5em 0;
+    text-transform: uppercase;
+    font-size: 1.4em;
+  }
+  h2 {
+    font-size: 2.5em;
+  }
 }
 
-header h2 {
-  font-size: 2.5em;
-}
 
-header .byline {
-  display: block;
-  margin: 0.5em 0 0 0;
-  padding: 0 0 0.5em 0;
-  text-transform: uppercase;
-  font-size: 1.4em;
-}
 
 section,
 article {
@@ -120,43 +129,42 @@ footer {
   margin-top: 1em;
 }
 
+//combinded
 .container {
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  .small {
+    width: 900px;
+  }
+  .big {
+    width: 100%;
+    max-width: 1500px;
+    min-width: 1200px;
+  }
 }
 
-.container.small {
-  width: 900px;
-}
-
-.container.big {
-  width: 100%;
-  max-width: 1500px;
-  min-width: 1200px;
-}
-
-.row section,
-.row article {
-  margin-bottom: 0;
-}
-
-.row [class*='column-'] {
-  padding: 50px 0 0 50px;
-  float: left;
-  box-sizing: border-box;
-}
-
+//combinded
 .row {
   margin-left: -50px;
-}
-
-.row:after {
+  [class*='column-'] {
+    padding: 50px 0 0 50px;
+    float: left;
+    box-sizing: border-box;
+  }
+  section,
+  article {
+  margin-bottom: 0;
+  }
+  :after {
   content: '';
   display: block;
   clear: both;
   height: 0;
+  }
+
 }
+
 
 .column-1,
 .column-2,
@@ -222,183 +230,170 @@ footer {
   }
 }
 
+//combined
 .image {
   display: inline-block;
+  img {
+    display: block;
+    width: 100%;
+  }
+  .featured {
+    display: block;
+    width: 100%;
+    margin: 0 0 2em 0;
+  }
+  .full {
+    display: block;
+    width: 100%;
+    margin-bottom: 2em;
+  }
+  .left {
+    float: left;
+    margin: 0 2em 2em 0;
+  }
+  .centered {
+    display: block;
+    margin: 0 0 2em 0;
+  }
+  .centered img {
+    margin: 0 auto;
+    width: auto;
+  }
 }
 
-.image img {
-  display: block;
-  width: 100%;
-}
 
-.image.featured {
-  display: block;
-  width: 100%;
-  margin: 0 0 2em 0;
-}
-
-.image.full {
-  display: block;
-  width: 100%;
-  margin-bottom: 2em;
-}
-
-.image.left {
-  float: left;
-  margin: 0 2em 2em 0;
-}
-
-.image.centered {
-  display: block;
-  margin: 0 0 2em 0;
-}
-
-.image.centered img {
-  margin: 0 auto;
-  width: auto;
-}
 
 ul.default {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-ul.default li {
-  display: block;
-  padding: 2em 0em 1.25em 0em;
-  border-top: 1px solid #303030;
-}
-
-ul.default li:first-child {
-  padding-top: 0em;
-  border-top: none;
-}
-
-ul.default a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, .5);
-}
-
-ul.default a:hover {
-  text-decoration: underline;
+  li {
+    display: block;
+    padding: 2em 0em 1.25em 0em;
+    border-top: 1px solid $TBB;
+  }
+  li:first-child {
+    padding-top: 0em;
+    border-top: none;
+  }
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, .5);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 ul.style1 {
   margin: 0;
   padding: 0;
   list-style: none;
+  li {
+    padding: 0.60em 0em;
+    border-top: 1px solid;
+    border-color: rgba(0, 0, 0, .1);
+  }
+  li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
 }
-
-ul.style1 li {
-  padding: 0.60em 0em;
-  border-top: 1px solid;
-  border-color: rgba(0, 0, 0, .1);
-}
-
-ul.style1 li:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
+ 
 
 ul.style2 {
   margin: 0;
   padding: 0;
   list-style: none;
+  li {
+    padding: 1.90em 0em 1.60em 0em;
+    border-top: 1px solid;
+    border-color: rgba(0, 0, 0, .1);
+  }
+  li:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+  img {
+    float: left;
+    padding-right: 1em;
+  }
 }
 
-ul.style2 li {
-  padding: 1.90em 0em 1.60em 0em;
-  border-top: 1px solid;
-  border-color: rgba(0, 0, 0, .1);
-}
-
-ul.style2 li:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
-
-ul.style2 img {
-  float: left;
-  padding-right: 1em;
-}
 
 ul.style5 {
   overflow: hidden;
   margin: 0em 0em 1em 0em;
   padding: 0em;
   list-style: none;
+  li {
+    float: left;
+    padding: 0.25em 0.25em;
+    line-height: 0;
+  }
 }
 
-ul.style5 li {
-  float: left;
-  padding: 0.25em 0.25em;
-  line-height: 0;
-}
+
 
 .button {
   position: relative;
   display: inline-block;
   margin-top: 0.5em;
   padding: 0.50em 1.5em;
-  background: #0d6efd;
+  background: $Linkcolor;
   border-radius: 6px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.1em;
-  color: #FFF;
+  color: $light;
   transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #0d6efd;
-  color: #FFF !important;
+  background: $Linkcolor;
+  color: $light !important;
 }
 
 .header {
   position: relative;
-  background: #FFF;
+  background: $light;
+  .container {
+    position: relative;
+    padding: 4em 0em;
+  }
 }
 
-.header .container {
-  position: relative;
-  padding: 4em 0em;
-}
 
 .logo {
   position: absolute;
   left: 0em;
   top: 3em;
+  a {
+    display: block;
+    text-decoration: none;
+    font-size: 2.8em;
+    font-weight: 600;
+  }
 }
 
-.logo a {
-  display: block;
-  text-decoration: none;
-  font-size: 2.8em;
-  font-weight: 600;
-}
+
 
 .nav {
   position: absolute;
   right: 0em;
   top: 2.2em;
-}
-
-.nav ul {
-  list-style-type: none;
-}
-
-.nav ul li {
-  float: left;
-}
-
-.nav ul li:last-child {
-  padding-right: 0;
-}
-
-.nav ul li a,
-.nav ul li span {
+  ul {
+    list-style-type: none;
+  }
+  ul li {
+    float: left;
+  }
+  ul li:last-child {
+    padding-right: 0;
+  }
+  a,
+ span {
   display: block;
   margin-left: 0.7em;
   padding: 0.80em 1.2em;
@@ -407,13 +402,13 @@ ul.style5 li {
   text-transform: uppercase;
   font-size: 1.1em;
   outline: 0;
-  color: #333;
-}
-
-.nav li.active a {
-  background: #0d6efd;
-  border-radius: 5px;
-  color: #FFF;
+  color: $Notlight;
+  }
+  li.active a {
+    background: $Linkcolor;
+    border-radius: 5px;
+    color: $light;
+  }
 }
 
 .banner {
@@ -421,12 +416,12 @@ ul.style5 li {
   padding: 12em 0em;
   background: url('/images/banner.jpg') no-repeat center;
   background-size: cover;
-  color: #fff;
+  color: $light;
 }
 
 .page {
   position: relative;
-  background: #fff;
+  background: $light;
 }
 
 .main {
@@ -441,54 +436,52 @@ ul.style5 li {
 .footer {
   position: relative;
   color: rgba(255, 255, 255, .4);
-}
-
-.footer h2 {
-  padding-bottom: 1.5em;
-  font-size: 1.6em;
-  color: #FFF;
-}
-
-.footer strong {
-  color: rgba(255, 255, 255, .7);
+  h2 {
+    padding-bottom: 1.5em;
+    font-size: 1.6em;
+    color: $light;
+  }
+  strong {
+    color: rgba(255, 255, 255, .7);
+  }
 }
 
 .copyright {
   position: relative;
   padding: 3em 0em;
-  border-top: 1px solid #303030;
+  border-top: 1px solid $TBB;
   letter-spacing: 1px;
   text-align: center;
   color: rgba(255, 255, 255, .4);
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, .4) !important;
+  }
 }
 
-.copyright a {
-  text-decoration: none;
-  color: rgba(255, 255, 255, .4) !important;
-}
+
 
 .marketing {
   position: relative;
+  header h2 {
+    font-size: 1.6em;
+  }
 }
 
-.marketing header h2 {
-  font-size: 1.6em;
-}
 
 .featured {
   position: relative;
+  .divider {
+    border-bottom: 1px solid $TBB;
+  }
+  .box {
+    background: $light;
+    padding: 1.4em;
+    font-size: 0.95em;
+    border-radius: 5px;
+  }
 }
-
-.featured .divider {
-  border-bottom: 1px solid #303030;
-}
-
-.featured .box {
-  background: #FFF;
-  padding: 1.4em;
-  font-size: 0.95em;
-  border-radius: 5px;
-}
+ 
 
 .balloon {
   padding: 1.87em;
@@ -496,13 +489,14 @@ ul.style5 li {
   border-radius: 5px;
   line-height: 180%;
   font-size: 1.2em;
-  color: #333;
+  color: $Notlight;
+  strong {
+    color: $Notlight !important;
+  }
 }
 
 .ballon-bgbtm {
   height: 1.87em;
 }
 
-.balloon strong {
-  color: #333 !important;
-}
+
