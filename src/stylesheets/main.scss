@@ -11,6 +11,7 @@ $display2:inline-block;
 $position:relative;
 $secPosition:absolute;
 $borderstyle:solid;
+$width: 100%;
 
 /*Mixins*/
 @mixin head{
@@ -26,9 +27,13 @@ $borderstyle:solid;
 }
 
 /*Mixins with argumnets*/
-@mixin make-column{
-  
+@mixin make-column ($width){
+  width: $width;
+
 }
+
+/*Imports*/
+@import"Nav";
 
 
 /*basic*/
@@ -198,7 +203,14 @@ footer {
 .column-10,
 .column-11,
 .column-12 {
-  width: 100%;
+  @include make-column($width);
+}
+
+//Loop
+@for $i from 1 through 12{
+  .column-#{$i}{
+    width: ($width / 12) * $i;
+  }
 }
 
 @media all and (min-width: 576px) {
@@ -400,38 +412,7 @@ ul.style5 {
 
 
 
-.nav {
-  position: $secPosition;
-  ;
-  right: 0em;
-  top: 2.2em;
-  ul {
-    list-style-type: none;
-  }
-  ul li {
-    float: left;
-  }
-  ul li:last-child {
-    padding-right: 0;
-  }
-  a,
- span {
-  display: $Display1;
-  margin-left: 0.7em;
-  padding: 0.80em 1.2em;
-  letter-spacing: 0.06em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  outline: 0;
-  color: $Notlight;
-  }
-  li.active a {
-    background: $Linkcolor;
-    border-radius: 5px;
-    color: $light;
-  }
-}
+
 
 .banner {
   position: $position;
